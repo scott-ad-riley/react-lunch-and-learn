@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 
 import Chart from './components/Chart.js';
-import ChartButton from './components/ChartDataModifier.js';
+import ChartButton from './components/ChartButton.js';
+
+import { getRandomDataPoint } from './helpers'
 
 class App extends Component {
   constructor(props) {
@@ -12,16 +14,13 @@ class App extends Component {
   }
   addToData() {
     this.setState({
-      chartData: this.state.chartData.concat(this.getRandomDataPoint())
+      chartData: this.state.chartData.concat(getRandomDataPoint())
     })
   }
   removeFromData() {
     this.setState({
       chartData: this.state.chartData.slice(0, this.state.chartData.length - 1)
     })
-  }
-  getRandomDataPoint () {
-    return Math.ceil(Math.random() * 5)
   }
   render() {
     return (
