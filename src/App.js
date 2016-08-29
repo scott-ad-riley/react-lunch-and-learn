@@ -14,7 +14,7 @@ class App extends Component {
   }
   addToData() {
     this.setState({
-      chartData: this.state.chartData.concat(getRandomDataPoint())
+      chartData: [...this.state.chartData, getRandomDataPoint()]
     })
   }
   removeFromData() {

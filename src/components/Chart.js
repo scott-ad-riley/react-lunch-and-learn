@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import Highcharts from 'highcharts';
 
+import highchartsDefaults from '../highchartsDefaults.js';
+
 class Chart extends Component {
   renderChart(seriesData = this.props.seriesData) {
-    Highcharts.chart(this._chartDiv, {
-      series: [{ 
+    Highcharts.chart(this._chartDiv, {...highchartsDefaults,
+      series: [{
         data: seriesData
       }],
-      credits: {
-        enabled: false
-      }
     })
   }
   setupRef(c) {
